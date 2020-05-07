@@ -1,10 +1,12 @@
 import React, { Component } from "react";
+import Navbar from "../reusableComponents/Navbar";
 
 export default class Home extends Component {
   render() {
     return (
       <div>
-        <h2>Hi home</h2>
+        <Navbar />
+        <h2>Hello Home</h2>
       </div>
     );
   }

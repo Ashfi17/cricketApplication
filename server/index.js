@@ -1,7 +1,10 @@
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const logger = require("morgan");
 const db = require("./connection");
+
+const Team = require("./routes/apis/Team");
 
 const app = express();
 
@@ -12,7 +15,9 @@ app.use(
     extended: false,
   })
 );
+app.use(logger("common"));
 
+app.use("/apis/team", Team);
 //checking database connection
 db.connect()
   .then((res) => {
