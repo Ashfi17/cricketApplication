@@ -5,6 +5,7 @@ const logger = require("morgan");
 const db = require("./connection");
 
 const Team = require("./routes/apis/Team");
+const Match = require("./routes/apis/Match");
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.use(
 app.use(logger("common"));
 
 app.use("/apis/team", Team);
+app.use("/apis/match", Match);
 //checking database connection
 db.connect()
   .then((res) => {

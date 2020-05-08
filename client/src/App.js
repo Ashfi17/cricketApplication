@@ -5,6 +5,7 @@ import Team from "./components/Teams";
 import Player from "./components/Players";
 import PlayerInfo from "./components/PlayerInfo";
 import Match from "./components/Match";
+import MatchDetail from "./components/MatchDetail";
 import "./App.css";
 
 function App() {
@@ -15,7 +16,8 @@ function App() {
         <Route exact path="/teams" component={Team} />
         <Route exact path="/players/:team_name" component={Player} />
         <Route exact path="/playerInfo/:player_name" component={PlayerInfo} />
-        <Route exact path="/match" component={Match} />
+        <Route exact path="/matches" component={Match} />
+        <Route exact path="/match-summary/:match_no" component={MatchDetail} />
       </Router>
     </div>
   );

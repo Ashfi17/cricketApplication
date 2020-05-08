@@ -36,7 +36,7 @@ export default class PlayerInfo extends Component {
             <div style={{ display: "flex" }}>
               <div style={{ display: "flex", flexDirection: "column" }}>
                 <span>Date Of Birth</span>
-                <b>{playerInfo.dob}</b>
+                <b>{playerInfo.dob.slice(0, 10)}</b>
               </div>
               <div
                 style={{

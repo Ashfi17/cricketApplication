@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,600&display=swap");
+
+body {
+  background-color: white;
+}
+
+.matchSecNavHead {
+  display: flex;
+  flex-direction: row;
+  margin: 14px 0px 10px 0px;
+  box-shadow: 0px 5px 3px 0px #c4c4c4;
+  padding: 0px 30px 20px 30px;
+  background-color: white;
+}
+.match-score-details {
+  display: flex;
+  flex-direction: column;
+  width: 32vw;
+}
+
+.match-team-score {
+  display: flex;
+  justify-content: space-between;
+}
+
+.match-score-details span {
+  text-align: left;
+}
+
+.match-score-details div {
+  margin-top: 10px;
+}
+
+.match-team-score span {
+  font-size: 28px;
+}
+.match-team-score span:first-child {
+  font-weight: 600;
+}
+
+.match-pom {
+  border-left: 1px solid #707070;
+  padding-left: 40px;
+  margin-left: 80px;
+}
+
+.pom-detail-div {
+  display: flex;
+}
+.pom-detail-div div:first-child {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  margin-top: 16px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.pom-detail-div div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  margin: 16px;
+}
+
+.pom-detail-div div:nth-child(2) > span {
+  text-align: left;
+}
+.pom-detail-div div:nth-child(2) > span:first-child {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.match-pom .pom-name-photo {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  column-gap: 20px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.pom-name > div:first-child {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.pom-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 1px solid #c2c2c2;
+}
+
+.pom-img > i {
+  color: #c2c2c2;
+  font-size: 30px;
+}
+
+@media screen and (max-width: 768px) {
+  .match-team-score > div {
+    display: grid;
+    grid-template-columns: max-content 1fr 2fr;
+    width: 48vw;
+    column-gap: 12px;
+  }
+
+  .match-pom {
+    padding-left: 30px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .match-pom {
+    display: none;
+  }
+  .match-team-score > div {
+    grid-template-columns: max-content 1fr 2fr;
+    width: 100%;
+    column-gap: 20px;
+  }
+
+  .secNavParent {
+    width: 100%;
+    margin: 0 0 0 0;
+  }
+}
