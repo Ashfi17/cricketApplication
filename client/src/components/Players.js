@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import Navbar from "../reusableComponents/Navbar";
-import "../assets/styles/Teams.css";
+import "../assets/styles/Players.css";
 import { getTeamPlayer } from "../actions/Teams";
+import Profile_Image from "../assets/images/cricket-player.png";
 import { connect } from "react-redux";
 
 export class Players extends Component {
@@ -12,16 +13,28 @@ export class Players extends Component {
     return (
       <div>
         <Navbar />
-        <div className="container-team">
-          <div className="grid-container-team">
+        <div className="container-player">
+          <div className="grid-container-player">
             {this.props.players
               ? this.props.players.map((player) => (
-                  <div className="team-card">
-                    <h1 className="team-name">{player.player_name}</h1>
-                    <div className="team-info">
-                      <h3>Total Matches : 20</h3>
-                      <h3>Ranking : 2</h3>
-                    </div>
+                  <div
+                    className="player-card"
+                    onClick={() => {
+                      this.props.history.push("/playerInfo/dummy", {
+                        player_name: player.player_name,
+                        dob: player.player_dob,
+                        role: player.player_role,
+                        country: player.player_country,
+                      });
+                    }}
+                  >
+                    <img
+                      src={Profile_Image}
+                      alt="player_profile"
+                      className="player-image"
+                    />
+                    <h1 className="player-name">{player.player_name}</h1>
+                    <h3 className="player-role">{player.player_role}</h3>
                   </div>
                 ))
               : null}
