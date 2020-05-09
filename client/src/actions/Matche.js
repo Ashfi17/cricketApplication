@@ -3,6 +3,7 @@ import config from "../config";
 import axios from "axios";
 const url = config.url + "match/";
 
+//function to call the api to get all recent matches
 export const getAllRecentMatches = () => (dispatch) => {
   return axios
     .get(url + "all/recent")
@@ -19,6 +20,7 @@ export const getAllRecentMatches = () => (dispatch) => {
       });
     });
 };
+//function to call the api to get details of a match
 export const getSingleMatch = (match_no) => (dispatch) => {
   return axios
     .get(url + "single-match-detals/" + match_no)

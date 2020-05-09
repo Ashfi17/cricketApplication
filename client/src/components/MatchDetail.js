@@ -10,11 +10,13 @@ import { connect } from "react-redux";
 
 export class MatchDetail extends Component {
   componentDidMount() {
+    //action call to get the match details
     this.props.getSingleMatch(this.props.match.params.match_no);
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (this.props.matches !== prevProps.matches) {
+      //action call to fetch all the players of the team
       this.props.getTeamPlayer(this.props.matches[0].match_winner);
     }
   }
@@ -33,6 +35,7 @@ export class MatchDetail extends Component {
               <div className="winner_detail-winning-team">
                 <span>Winning Team </span>
                 <span>
+                  {/* display the name of winner team */}
                   {this.props.matches
                     ? this.props.matches[0]
                       ? this.props.matches[0].match_winner
@@ -42,6 +45,7 @@ export class MatchDetail extends Component {
               </div>
               <div className="winner_detail-players">
                 <span>Players In the Match</span>
+                {/* checks if the players reducer has some value if yes then populate  */}
                 {this.props.players
                   ? this.props.players.map((p) => (
                       <span className="players-list">{p.player_name}</span>
@@ -59,6 +63,7 @@ export class MatchDetail extends Component {
             <div className="m-detail">
               <span>Date</span>
               <span>
+                {/* display match date */}
                 {this.props.matches
                   ? this.props.matches[0]
                     ? this.props.matches[0].match_date.slice(0, 10)
@@ -69,6 +74,7 @@ export class MatchDetail extends Component {
             <div className="m-detail">
               <span>Venue</span>
               <span>
+                {/* display venue name */}
                 {this.props.matches
                   ? this.props.matches[0]
                     ? this.props.matches[0].venue_name

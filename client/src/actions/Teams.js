@@ -4,6 +4,7 @@ import axios from "axios";
 
 const url = config.url + "team";
 
+//function to call the api to get all teams data
 export const getAllTeams = () => (dispatch) => {
   return axios
     .get(url + "/all-teams")
@@ -20,6 +21,7 @@ export const getAllTeams = () => (dispatch) => {
       });
     });
 };
+//function to call the api to get players of a team
 export const getTeamPlayer = (teamName) => (dispatch) => {
   return axios
     .get(url + "/players/" + teamName)

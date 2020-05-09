@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const db = require("../../connection");
 
+//api to get recent matches
 router.get("/all/recent", async (req, res, next) => {
   try {
     const result = await db.any(`select match.match_no,match.match_date,match.innings_one_team as Team_One,match.innings_two_team as Team_Two,
@@ -21,6 +22,8 @@ router.get("/all/recent", async (req, res, next) => {
     next(e);
   }
 });
+
+//api to get single match details by match no
 router.get("/single-match-detals/:match_no", async (req, res, next) => {
   const matchNo = req.params.match_no;
   try {
@@ -42,6 +45,7 @@ router.get("/single-match-detals/:match_no", async (req, res, next) => {
   }
 });
 
+//api to get all matches of team by team name
 router.get("/all/:team_name", async (req, res, next) => {
   const teamName = req.params.team_name;
   try {

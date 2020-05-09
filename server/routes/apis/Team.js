@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const db = require("../../connection");
 
+//api to get all team
 router.get("/all-teams", async (req, res, next) => {
   try {
     const teams = await db.any(`SELECT * FROM team`);
@@ -22,6 +23,7 @@ router.get("/all-teams", async (req, res, next) => {
   }
 });
 
+//api to get players of a team
 router.get("/players/:team_name", async (req, res, next) => {
   const teamName = req.params.team_name;
   try {

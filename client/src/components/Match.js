@@ -7,6 +7,7 @@ import { getAllRecentMatches } from "../actions/Matche";
 
 export class Match extends Component {
   componentDidMount() {
+    //action call to fetch the recent matches
     this.props.getAllRecentMatches();
   }
   render() {
@@ -15,6 +16,7 @@ export class Match extends Component {
         <Navbar pageLink={"matches"} />
 
         <div className="match-card-container">
+          {/* if the there is some value in the matches reducer then populate with the details */}
           {this.props.matches
             ? this.props.matches.map((match, index) => (
                 <div id="match-card-id" className="match-card" key={index}>

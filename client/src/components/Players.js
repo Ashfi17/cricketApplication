@@ -15,11 +15,13 @@ export class Players extends Component {
         <Navbar />
         <div className="container-player">
           <div className="grid-container-player">
+            {/* if players reducer has some value then map the players */}
             {this.props.players
               ? this.props.players.map((player) => (
                   <div
                     className="player-card"
                     onClick={() => {
+                      // when the player card is clicked it redirects to other page with the details passed
                       this.props.history.push("/playerInfo/dummy", {
                         player_name: player.player_name,
                         dob: player.player_dob,
@@ -33,7 +35,9 @@ export class Players extends Component {
                       alt="player_profile"
                       className="player-image"
                     />
+                    {/* display player name */}
                     <h1 className="player-name">{player.player_name}</h1>
+                    {/* display player role */}
                     <h3 className="player-role">{player.player_role}</h3>
                   </div>
                 ))

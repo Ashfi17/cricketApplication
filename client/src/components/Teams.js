@@ -17,6 +17,7 @@ export class Teams extends Component {
         <Navbar pageLink={"teams"} />
         <div className="container-team">
           <div className="grid-container-team">
+            {/* if teams has some value the map the teams */}
             {this.props.teams
               ? this.props.teams.map((team) => (
                   <div className="team-card">
