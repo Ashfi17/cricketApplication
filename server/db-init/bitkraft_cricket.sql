@@ -1,24 +1,7 @@
 drop database if exists bitkraft_cricket;
 create database bitkraft_cricket;
 /* CREATING TABLES */
--- create table match
--- (
---     match_id int AUTO_INCREMENT PRIMARY KEY NOT NULL,
---     match_type varchar(255),
---     match_date date,
---     innings_one_team int,
---     CONSTRAINT fk_team_one FOREIGN KEY (innings_one_team) REFERENCES team (team_id),
---     innings_two_team int,
---     CONSTRAINT fk_team_two FOREIGN KEY (innings_two_team) REFERENCES team (team_id),
---     outcome varchar(255),
---     player_of_the_match int,
---     CONSTRAINT fk_match_player FOREIGN KEY (player_of_the_match) REFERENCES player (player_id),
---     match_winner int,
---     match_loser int,
---     summary varchar(8000),
---     venue_id int,
---     CONSTRAINT fk_venue_id FOREIGN KEY (venue_id) REFERENCES venue (venue_id)
--- );
+
 
 
 
@@ -72,7 +55,7 @@ create table results
     outcome varchar(255),
     player_of_the_match varchar(255),
     CONSTRAINT fk_match_player FOREIGN KEY (player_of_the_match) REFERENCES player (player_name),
-    match_winner varchar(255),
+    match_winner varchar(255)
     );
 
 
@@ -122,7 +105,7 @@ INSERT INTO team(team_name) VALUES ('England');
 /* INSERTING  DATA in VENUE TABLE*/
 
 INSERT INTO venue(venue_name,venue_city) VALUES ('Eden Gardens','Kolkata,India');
-INSERT INTO venue(venue_name,venue_city) VALUES ('Lords Cricket Ground','St Johns Wood, London')
+INSERT INTO venue(venue_name,venue_city) VALUES ('Lords Cricket Ground','St Johns Wood, London');
 
 /* INSERTING DATA INTO MATCH TABLE*/
  INSERT INTO match (match_no,match_date,innings_one_team,innings_two_team,summary,venue_name)
