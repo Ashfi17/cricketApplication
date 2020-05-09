@@ -17,19 +17,23 @@ export class Match extends Component {
         <div className="match-card-container">
           {this.props.matches
             ? this.props.matches.map((match, index) => (
-                <div className="match-card" key={index}>
+                <div id="match-card-id" className="match-card" key={index}>
                   <div className="match-score-div">
                     <div>
-                      <span style={{ color: "#2980B9" }}>{match.team_one}</span>
-                      <span style={{ color: "#2980B9" }}>{match.team_two}</span>
+                      <span id="team-one" style={{ color: "#2980B9" }}>
+                        {match.team_one}
+                      </span>
+                      <span id="team-two" style={{ color: "#2980B9" }}>
+                        {match.team_two}
+                      </span>
                       <span>{match.outcome}</span>
                       <span>{match.match_date.slice(0, 10)}</span>
                     </div>
                     <div>
-                      <span>
+                      <span id="team-one-runs">
                         {match.team_one_runs}/{match.team_one_wicket}
                       </span>
-                      <span>
+                      <span id="team-two-runs">
                         {match.team_two_runs}/{match.team_two_wicket}
                       </span>
                       <button

@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import Navbar from "../reusableComponents/Navbar";
 import "../assets/styles/Teams.css";
+import Australia from "../assets/images/australia.png";
+import India from "../assets/images/india.png";
+import Pakistan from "../assets/images/pakistan.png";
+import England from "../assets/images/england.png";
 import { getAllTeams } from "../actions/Teams";
 import { connect } from "react-redux";
 export class Teams extends Component {
@@ -16,11 +20,25 @@ export class Teams extends Component {
             {this.props.teams
               ? this.props.teams.map((team) => (
                   <div className="team-card">
+                    <img
+                      src={
+                        team.team_name === "India"
+                          ? India
+                          : team.team_name === "Australia"
+                          ? Australia
+                          : team.team_name === "Pakistan"
+                          ? Pakistan
+                          : team.team_name === "England"
+                          ? England
+                          : ""
+                      }
+                      alt="country"
+                    />
                     <h1 className="team-name">{team.team_name}</h1>
-                    <div className="team-info">
+                    {/* <div className="team-info">
                       <h3>Total Matches : 20</h3>
                       <h3>Ranking : 2</h3>
-                    </div>
+                    </div> */}
                     <button
                       className="view-team-button"
                       onClick={() => {

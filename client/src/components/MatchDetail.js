@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Navbar from "../reusableComponents/Navbar";
 import MatchSecondaryNavbar from "../reusableComponents/MatchSecondaryNavbar";
+import { getTeamPlayer } from "../actions/Teams";
+
 import "../assets/styles/MatchDetail.css";
 import { getSingleMatch } from "../actions/Matche";
 
@@ -10,6 +12,13 @@ export class MatchDetail extends Component {
   componentDidMount() {
     this.props.getSingleMatch(this.props.match.params.match_no);
   }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.matches !== prevProps.matches) {
+      this.props.getTeamPlayer(this.props.matches[0].match_winner);
+    }
+  }
+
   render() {
     return (
       <div style={{ backgroundColor: "#C5C3C6" }}>
@@ -21,6 +30,24 @@ export class MatchDetail extends Component {
           <div>
             <div className="winner_details">
               <div className="card-header">Winner Detail</div>
+              <div className="winner_detail-winning-team">
+                <span>Winning Team </span>
+                <span>
+                  {this.props.matches
+                    ? this.props.matches[0]
+                      ? this.props.matches[0].match_winner
+                      : ""
+                    : ""}
+                </span>
+              </div>
+              <div className="winner_detail-players">
+                <span>Players In the Match</span>
+                {this.props.players
+                  ? this.props.players.map((p) => (
+                      <span className="players-list">{p.player_name}</span>
+                    ))
+                  : null}
+              </div>
             </div>
           </div>
           <div className="match_details">
@@ -58,8 +85,10 @@ export class MatchDetail extends Component {
 
 const mapStateToProps = (state) => ({
   matches: state.matchReducer.matches,
+  players: state.teamReducer.players,
   matchErrorMessage: state.matchReducer.matchErrorMessage,
 });
 export default connect(mapStateToProps, {
   getSingleMatch,
+  getTeamPlayer,
 })(MatchDetail);

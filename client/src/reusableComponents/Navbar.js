@@ -55,9 +55,9 @@ export default class Navbar extends Component {
               <Link
                 to="/"
                 id="nav-brand"
-                onClick={() => {
-                  this.setState({ pageLink: "" });
-                }}
+                // onClick={() => {
+                //   this.setState({ pageLink: "" });
+                // }}
               >
                 CrickKraft
               </Link>
@@ -93,7 +93,7 @@ export default class Navbar extends Component {
               }}
               onClick={() => this.toggleChange("matches")}
             >
-              <Link className="link" to="/matches" id="matches">
+              <Link className="link" to="/" id="matches">
                 Matches
               </Link>
             </li>
@@ -133,14 +133,14 @@ export default class Navbar extends Component {
             {/* search box list item */}
             <li className="search-box-li">
               {/* search box to search for points-table and teams */}
-              <input
+              {/* <input
                 id="searchInput"
                 name="searchInput"
                 className="search-box"
                 value={this.state.searchInput}
                 onChange={this.handleSearchInputChange}
                 placeholder="Search for Team or Player"
-              />
+              /> */}
 
               {/* shows search result after entering text in search boc */}
 
